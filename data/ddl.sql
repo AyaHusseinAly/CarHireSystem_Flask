@@ -5,7 +5,7 @@ CREATE TABLE customers(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     phone VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     country VARCHAR(30) NOT NULL,
     city VARCHAR(30) NOT NULL,
     street VARCHAR(30) NOT NULL,
@@ -13,6 +13,8 @@ CREATE TABLE customers(
     register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+CREATE INDEX email_indx ON customers(email);
+
 
 
 CREATE TABLE vehicles(
@@ -38,5 +40,8 @@ CREATE TABLE bookings(
 	FOREIGN KEY (customer_id) REFERENCES customers (id) ,
     FOREIGN KEY (vehicle_id) REFERENCES vehicles (id)
 );
-ALTER TABLE bookings ALTER COLUMN hire_date DROP DEFAULT;
+ALTER TABLE bookings ALTER COLUMN hire_date DROP DEFAULT;    
 ALTER TABLE bookings ALTER COLUMN return_date DROP DEFAULT;
+
+CREATE INDEX hire_date_indx ON bookings(hire_date);			-- as it will be used frequently for daily Reports
+CREATE INDEX return_date_indx ON bookings(return_date);		-- as it will be used frequently for daily Reports
