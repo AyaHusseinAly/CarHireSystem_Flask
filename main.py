@@ -1,10 +1,9 @@
-from flask import Flask, jsonify, request
-from controllers.customer_controller import Customer
-from config import *
+from controllers.customer_controller import CustomerController
+from db_config import *
 
 # adding Routes
-# api.add_resource(Customer(app), '/customers/<int:id>')
-api.add_resource(Customer, '/customers')
+api.add_resource(CustomerController, '/customers' ,'/customers/<int:id>')
+# api.add_resource(Customer, '/customers')
 
 
 if __name__ == '__main__':
