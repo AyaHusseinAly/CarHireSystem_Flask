@@ -29,13 +29,14 @@ CREATE TABLE vehicles(
 CREATE TABLE bookings(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     booking_type ENUM('in_advance', 'normal'),    -- in advance / normal
-    hire_date TIMESTAMP NOT NULL,
-    return_date TIMESTAMP NOT NULL,
+    hire_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	customer_id INT(6),
-	vehicle_id INT(6),
+	customer_id INT(6) UNSIGNED,
+	vehicle_id INT(6) UNSIGNED,
 	FOREIGN KEY (customer_id) REFERENCES customers (id) ,
     FOREIGN KEY (vehicle_id) REFERENCES vehicles (id)
-
 );
+ALTER TABLE bookings ALTER COLUMN hire_date DROP DEFAULT;
+ALTER TABLE bookings ALTER COLUMN return_date DROP DEFAULT;
