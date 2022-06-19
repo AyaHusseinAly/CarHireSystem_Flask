@@ -8,3 +8,11 @@ Flask microframework based booking system to manage renting cars and vans.
 
 ### :paperclip: Database Design (ERD)
 ![ERD](data/ERD.JPG)
+
+### :paperclip: Screenshots
+![ERD](data/scrn_shots/get.JPG)  
+![ERD](data/scrn_shots/not_found.JPG)  
+![ERD](data/scrn_shots/updated.JPG)  
+![ERD](data/scrn_shots/no_updates.JPG)  
+![ERD](data/scrn_shots/post.JPG)  
+![ERD](data/scrn_shots/dalete.JPG)  
