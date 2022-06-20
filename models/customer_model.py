@@ -101,9 +101,9 @@ class Customer():
         query = q[:-4]                    # remove last "and"
         cur.execute(query)         
         customers = cur.fetchall()
-        customers_arr = [Customer(*customer) for cutomer in customers]
+        customers_arr = [Customer(*customer) for customer in customers]
         cur.close()   
-        if len(customer) !=0:
+        if len(customers_arr) !=0:
             return customers_arr
 
         return []
