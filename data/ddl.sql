@@ -35,9 +35,9 @@ CREATE TABLE bookings(
     return_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	customer_id INT(6) UNSIGNED,
-	vehicle_id INT(6) UNSIGNED,
-	FOREIGN KEY (customer_id) REFERENCES customers (id) ,
+    customer_id INT(6) UNSIGNED,
+    vehicle_id INT(6) UNSIGNED,
+    FOREIGN KEY (customer_id) REFERENCES customers (id),
     FOREIGN KEY (vehicle_id) REFERENCES vehicles (id)
 );
 ALTER TABLE bookings ALTER COLUMN hire_date DROP DEFAULT;    
