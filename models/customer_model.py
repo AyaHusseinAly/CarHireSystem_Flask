@@ -1,5 +1,5 @@
 from datetime import datetime
-from db_config import mysql
+from app_config import mysql
 
 class Customer():
     def __init__(self, id= None, full_name= None, phone= None, email= None, country= None, city= None, street= None, building= None, register_date= None, updated_at= None):

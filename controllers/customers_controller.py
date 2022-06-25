@@ -14,7 +14,7 @@ def Error_Handler(func):
             return response  
     return Inner_Function
 
-class CustomerController(Resource):
+class CustomersController(Resource):
 
     # Corresponds to GET request to route: '/customers/<int:id>'
     @Error_Handler
